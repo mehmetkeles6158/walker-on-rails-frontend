@@ -1,0 +1,53 @@
+
+
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDAwMTQxNzB9.ovMXAAHVR93VEtimlvC9tBDFs2H0A-KBZRoTklMkQBk
+GET http://localhost:3000/walks
+Authorization: Bearer {{jwt}}
+###
+GET http://localhost:3000/walks/7
+Authorization: Bearer {{jwt}}
+###
+POST http://localhost:3000/walks
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "optimal_steps": 4900 ,
+  "miles": 2.45 ,
+  "status":true,
+  "date": "11/09/2021"
+}
+
+### Users create (signup)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Mo Salah",
+  "email": "mosalah@gmail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "mosalah@gmail.com",
+  "password": "password"
+}
+
+###
+GET http://localhost:3000/users
+Authorization: Bearer {{jwt}}
+
+###
+PATCH http://localhost:3000/users
+Authorization: Bearer {{jwt}}
+
+###
+GET http://localhost:3000/parks?address=601 Lakeside Ave Cleveland, Ohio 44114
+
+
+
